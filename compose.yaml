@@ -12,7 +12,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: pokebase
     volumes:
-      - db-data:/var/lib/mysql
+      - database-data:/var/lib/postgresql/data:rw
 
   api:
     image: thecodingmachine/php:8.2-v4-apache
@@ -46,5 +46,6 @@ services:
       - ./front:/app
     stdin_open: true
     tty: true
+
 volumes:
-  db-data:
+  database-data:
