@@ -28,6 +28,7 @@ generate-env-local:
 	@docker compose exec api bash -c 'echo "DATABASE_PASSWORD=$$POSTGRES_PASSWORD"' >> api/.env.local
 	@docker compose exec api bash -c 'echo "DATABASE_HOST=$$POSTGRES_HOST"' >> api/.env.local
 	@docker compose exec api bash -c 'echo "DATABASE_PORT=$$POSTGRES_PORT"' >> api/.env.local
+	@docker compose exec api bash -c 'echo "DATABASE_NAME=$$POSTGRES_NAME"' >> api/.env.local
 	@echo "    ----- .env.local généré"
 
 api-install:
@@ -52,3 +53,8 @@ xdebug-config-file:
 	@cp .docker/api/php/custom.xdebug.ini.example .docker/api/php/50_xdebug.ini
 	@echo "xdebug.client_host=$$(cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2)" >> .docker/php8/conf.d/50_xdebug.ini
 	@echo "    ------ Fichier xdebug généré"
+
+cs-fixer:
+	@echo "     ----- Lancement des correctifs syntaxique PHP"
+	@docker compose exec -u docker api php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php
+	@echo "     ----- Correctifs faits"
