@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-  # MySQL Configuration
   database:
     image: postgres:16
     restart: on-failure
@@ -27,6 +26,10 @@ services:
     environment:
       PHP_EXTENSION_INTL: 1
       PHP_EXTENSION_XDEBUG: 1
+      PHP_EXTENSION_PGSQL: 1
+      PHP_EXTENSION_PDO_PGSQL: 1
+      PHP_EXTENSION_PDO_MYSQL: 0
+      PHP_EXTENSION_MYSQLI: 0
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_HOST: database
