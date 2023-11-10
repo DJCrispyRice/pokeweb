@@ -58,3 +58,26 @@ cs-fixer:
 	@echo "     ----- Lancement des correctifs syntaxique PHP"
 	@docker compose exec -u docker api php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php
 	@echo "     ----- Correctifs faits"
+
+## DB related commands
+db-drop:
+	@echo "     ----- Drop de la database"
+	@docker compose exec -u docker api php bin/console doctrine:database:drop --if-exists --force
+	@echo "     ----- Done"
+
+db-create:
+	@echo "     ----- Création de la database"
+	@docker compose exec -u docker api php bin/console doctrine:database:create
+	@echo "     ----- Done"
+
+db-migrate:
+	@echo "     ----- Exécution des migrations"
+	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:migrate
+	@echo "     ----- Done"
+
+db-install:
+	@echo "     ----- Installation de la database"
+	@make db-drop
+	@make db-create
+	@make db-migrate
+	@echo "     ----- Done"

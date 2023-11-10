@@ -20,9 +20,11 @@ class Pokemon
     private ?string $name = null;
 
     #[ORM\ManyToMany(targetEntity: Type::class, inversedBy: 'pokemons')]
+    #[ORM\JoinTable(name: 'pokemon_types')]
     private Collection $types;
 
     #[ORM\ManyToMany(targetEntity: Attack::class)]
+    #[ORM\JoinTable(name: 'pokemon_attacks')]
     private Collection $attacks;
 
     #[ORM\Column]

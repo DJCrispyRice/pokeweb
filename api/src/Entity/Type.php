@@ -21,15 +21,15 @@ class Type
     private ?string $label = null;
 
     #[ORM\ManyToMany(targetEntity: self::class)]
-    #[ORM\JoinTable(name: 'types_strength')]
+    #[ORM\JoinTable(name: 'type_strengths')]
     private Collection $strength;
 
     #[ORM\ManyToMany(targetEntity: self::class)]
-    #[ORM\JoinTable(name: 'types_weakness')]
+    #[ORM\JoinTable(name: 'type_weakness')]
     private Collection $weakness;
 
     #[ORM\ManyToMany(targetEntity: self::class)]
-    #[ORM\JoinTable(name: 'types_uselessness')]
+    #[ORM\JoinTable(name: 'type_uselessness')]
     private Collection $useless;
 
     #[ORM\ManyToMany(targetEntity: Pokemon::class, mappedBy: 'types')]
