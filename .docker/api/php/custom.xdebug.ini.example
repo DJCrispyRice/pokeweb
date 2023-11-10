@@ -1,0 +1,7 @@
+xdebug.mode=develop, coverage, debug
+zend_extension=xdebug.so
+xdebug.log_level=0
+xdebug.client_port=9003
+xdebug.idekey=PHPSTORM
+; Mettre le nom de son PC ou l'ip correspondante à cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2
+; xdebug.client_host=

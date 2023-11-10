@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  # MySQL Configuration
+  database:
+    image: postgres:16
+    restart: on-failure
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: database
+    volumes:
+      - db-data:/var/lib/mysql
+
+  api:
+    image: thecodingmachine/php:8.2-v4-apache
+    container_name: api
+    links:
+      - database
+    ports:
+      - "8000:80"
+    volumes:
+      - ./api:/var/www/html
+      - ./.docker/api/apache/app.conf:/etc/apache2/conf-enabled/app.conf
+    environment:
+      PHP_EXTENSION_INTL: 1
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: database
+      POSTGRES_PORT: 5432
+      POSTGRES_NAME: database
+
+  front:
+    build:
+      context: .
+      dockerfile: .docker/front/Dockerfile
+    container_name: front
+    links:
+      - api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front:/app
+    stdin_open: true
+    tty: true
+volumes:
+  db-data:
