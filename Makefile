@@ -51,7 +51,7 @@ project-rights:
 xdebug-config-file:
 	@echo "    -> Création de la configuration xdebug"
 	@cp .docker/api/php/custom.xdebug.ini.example .docker/api/php/50_xdebug.ini
-	@echo "xdebug.client_host=$$(cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2)" >> .docker/php8/conf.d/50_xdebug.ini
+	@echo "xdebug.client_host=$$(cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2)" >> .docker/api/php/50_xdebug.ini
 	@echo "    ------ Fichier xdebug généré"
 
 cs-fixer:
@@ -80,4 +80,5 @@ db-install:
 	@make db-drop
 	@make db-create
 	@make db-migrate
+	@docker compose exec -u docker api php bin/console app:create-types
 	@echo "     ----- Done"

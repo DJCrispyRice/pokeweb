@@ -19,7 +19,9 @@
         "ergebnis/composer-normalize": "*",
         "friendsofphp/php-cs-fixer": "*",
         "phpunit/phpunit": "*",
-        "symfony/maker-bundle": "^1.51"
+        "symfony/maker-bundle": "^1.51",
+        "symfony/twig-bundle": "6.3.*",
+        "twig/twig": "^3.0"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",

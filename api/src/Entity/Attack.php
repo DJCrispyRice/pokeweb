@@ -7,6 +7,7 @@ namespace App\Entity;
 use App\Repository\AttackRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Table(name: 'attacks')]
 #[ORM\Entity(repositoryClass: AttackRepository::class)]
 class Attack
 {

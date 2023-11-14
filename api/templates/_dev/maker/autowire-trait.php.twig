@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use App\Exception\AutowiringException;
+use {{ fqcn }};
+use Symfony\Contracts\Service\Attribute\Required;
+
+trait Autowire{{ class_name }}Trait
+{
+    private {{ class_name }} $_{{ property_name }};
+
+    #[Required]
+    public function {{ autowire_method_name }}({{ class_name }} ${{ parameter_name }}): static
+    {
+        if (isset($this->_{{ property_name }})) {
+            throw new AutowiringException('Setter ' . __METHOD__ . ' has already been called.');
+        }
+
+        $this->_{{ property_name }} = ${{ parameter_name }};
+
+        return $this;
+    }
+
+    protected function {{ getter_method_name }}(): {{ class_name }}
+    {
+        if (isset($this->_{{ property_name }}) === false) {
+            throw new AutowiringException('Setter ' . __TRAIT__ . '::{{ autowire_method_name }} has never been called.');
+        }
+
+        return $this->_{{ property_name }};
+    }
+}

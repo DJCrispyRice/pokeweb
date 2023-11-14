@@ -3,7 +3,6 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
 
 services:
     # default configuration for services in *this* file
@@ -13,12 +12,17 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
-
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    App\Command\:
+      resource: '../../src/Command/**/*Command.php'
+    App\Controller\:
+      resource: '../../src/Controller/**/*Controller.php'
+      tags: [ 'controller.service_arguments' ]
+      public: true
+    App\Handler\:
+      resource: '../../src/Handler/**/*.php'
+    App\Repository\:
+      resource: '../../src/Repository/**/*.php'
+#    App\Security\:
+#      resource: '../src/Security/**/*.php'
+    App\Service\:
+      resource: '../../src/Service/**/*.php'
