@@ -13,46 +13,46 @@ app-install:
 
 app-start:
 	@echo "     ----- Lancement du projet"
-	@docker compose up -d --build
+	@docker-compose up -d --build
 	@echo "     ----- Projet lancé"
 
 app-stop:
 	@echo "     ----- Arrêt du projet"
-	@docker compose stop
-	@docker compose rm -f api
-	@docker compose rm -f front
+	@docker-compose stop
+	@docker-compose rm -f api
+	@docker-compose rm -f front
 	@echo "     ----- Projet arrêté"
 
 generate-env-local:
 	@echo "     ----- Génération du fichier .env.local"
 	@rm -f api/.env.local
-	@docker compose exec api bash -c 'echo "DATABASE_USER=$$POSTGRES_USER"' >> api/.env.local
-	@docker compose exec api bash -c 'echo "DATABASE_PASSWORD=$$POSTGRES_PASSWORD"' >> api/.env.local
-	@docker compose exec api bash -c 'echo "DATABASE_HOST=$$POSTGRES_HOST"' >> api/.env.local
-	@docker compose exec api bash -c 'echo "DATABASE_PORT=$$POSTGRES_PORT"' >> api/.env.local
-	@docker compose exec api bash -c 'echo "DATABASE_NAME=$$POSTGRES_NAME"' >> api/.env.local
+	@docker-compose exec api bash -c 'echo "DATABASE_USER=$$POSTGRES_USER"' >> api/.env.local
+	@docker-compose exec api bash -c 'echo "DATABASE_PASSWORD=$$POSTGRES_PASSWORD"' >> api/.env.local
+	@docker-compose exec api bash -c 'echo "DATABASE_HOST=$$POSTGRES_HOST"' >> api/.env.local
+	@docker-compose exec api bash -c 'echo "DATABASE_PORT=$$POSTGRES_PORT"' >> api/.env.local
+	@docker-compose exec api bash -c 'echo "DATABASE_NAME=$$POSTGRES_NAME"' >> api/.env.local
 	@echo "    ----- .env.local généré"
 
 api-install:
 	@echo "     ----- Installation des packages Composer"
-	@docker compose exec -u root api /bin/bash -c "composer install"
+	@docker-compose exec -u root api /bin/bash -c "composer install"
 	@echo "     ----- Packages installés"
 
 ## JS
 front-install:
 	@echo "     ----- Installation des packages JS"
-	@docker compose exec front /bin/sh -c "yarn"
+	@docker-compose exec front /bin/sh -c "yarn"
 	@echo "     ----- Packages installés"
 
 yarn-start:
 	@echo "     -> Démarrage de node"
-	@docker compose exec -d front /bin/sh -c "yarn start"
+	@docker-compose exec -d front /bin/sh -c "yarn start"
 	@echo "     ----- Node démarré"
 
 project-rights:
 	@echo "     ----- Application des droits du projet"
-	@docker compose exec -u root api chown -R docker: .
-	@docker compose exec -u root front chown -R node: .
+	@docker-compose exec -u root api chown -R docker: .
+	@docker-compose exec -u root front chown -R node: .
 	@echo "     ----- Droits appliqués"
 
 xdebug-config-file:
@@ -63,28 +63,28 @@ xdebug-config-file:
 
 cs-fixer:
 	@echo "     ----- Lancement des correctifs syntaxique PHP"
-	@docker compose exec -u docker api php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php
+	@docker-compose exec -u docker api php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php
 	@echo "     ----- Correctifs faits"
 
 ## DB related commands
 db-drop:
 	@echo "     ----- Drop de la database"
-	@docker compose exec -u docker api php bin/console doctrine:database:drop --if-exists --force
+	@docker-compose exec -u docker api php bin/console doctrine:database:drop --if-exists --force
 	@echo "     ----- Done"
 
 db-create:
 	@echo "     ----- Création de la database"
-	@docker compose exec -u docker api php bin/console doctrine:database:create
+	@docker-compose exec -u docker api php bin/console doctrine:database:create
 	@echo "     ----- Done"
 
 db-diff:
 	@echo "     ----- Exécution des migrations"
-	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:diff
+	@docker-compose exec -u docker api php bin/console --no-interaction doctrine:migrations:diff
 	@echo "     ----- Done"
 
 db-migrate:
 	@echo "     ----- Exécution des migrations"
-	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:migrate
+	@docker-compose exec -u docker api php bin/console --no-interaction doctrine:migrations:migrate
 	@echo "     ----- Done"
 
 db-install:
@@ -92,7 +92,7 @@ db-install:
 	@make db-drop
 	@make db-create
 	@make db-migrate
-	@docker compose exec -u docker api php bin/console app:create-types
-	@docker compose exec -u docker api php bin/console app:create-pokemons
-	@docker compose exec -u docker api php bin/console app:create-attacks
+	@docker-compose exec -u docker api php bin/console app:create-types
+	@docker-compose exec -u docker api php bin/console app:create-pokemons
+	@docker-compose exec -u docker api php bin/console app:create-attacks
 	@echo "     ----- Done"
