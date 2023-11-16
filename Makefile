@@ -8,6 +8,7 @@ app-install:
 	@make project-rights
 	@make xdebug-config-file
 	@make db-install
+	@make yarn-start
 	@echo "     ----- PROJET INSTALLE"
 
 app-start:
@@ -42,6 +43,11 @@ front-install:
 	@echo "     ----- Installation des packages JS"
 	@docker compose exec front /bin/sh -c "yarn"
 	@echo "     ----- Packages installés"
+
+yarn-start:
+	@echo "     -> Démarrage de node"
+	@docker compose exec -d front /bin/sh -c "yarn start"
+	@echo "     ----- Node démarré"
 
 project-rights:
 	@echo "     ----- Application des droits du projet"
