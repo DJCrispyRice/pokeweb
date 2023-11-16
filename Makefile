@@ -7,6 +7,8 @@ app-install:
 	@make front-install
 	@make project-rights
 	@make xdebug-config-file
+	@make db-install
+	@make yarn-start
 	@echo "     ----- PROJET INSTALLE"
 
 app-start:
@@ -42,6 +44,11 @@ front-install:
 	@docker compose exec front /bin/sh -c "yarn"
 	@echo "     ----- Packages installés"
 
+yarn-start:
+	@echo "     -> Démarrage de node"
+	@docker compose exec -d front /bin/sh -c "yarn start"
+	@echo "     ----- Node démarré"
+
 project-rights:
 	@echo "     ----- Application des droits du projet"
 	@docker compose exec -u root api chown -R docker: .
@@ -51,7 +58,7 @@ project-rights:
 xdebug-config-file:
 	@echo "    -> Création de la configuration xdebug"
 	@cp .docker/api/php/custom.xdebug.ini.example .docker/api/php/50_xdebug.ini
-	@echo "xdebug.client_host=$$(cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2)" >> .docker/php8/conf.d/50_xdebug.ini
+	@echo "xdebug.client_host=$$(cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2)" >> .docker/api/php/50_xdebug.ini
 	@echo "    ------ Fichier xdebug généré"
 
 cs-fixer:
@@ -70,6 +77,11 @@ db-create:
 	@docker compose exec -u docker api php bin/console doctrine:database:create
 	@echo "     ----- Done"
 
+db-diff:
+	@echo "     ----- Exécution des migrations"
+	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:diff
+	@echo "     ----- Done"
+
 db-migrate:
 	@echo "     ----- Exécution des migrations"
 	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:migrate
@@ -80,4 +92,7 @@ db-install:
 	@make db-drop
 	@make db-create
 	@make db-migrate
+	@docker compose exec -u docker api php bin/console app:create-types
+	@docker compose exec -u docker api php bin/console app:create-pokemons
+	@docker compose exec -u docker api php bin/console app:create-attacks
 	@echo "     ----- Done"

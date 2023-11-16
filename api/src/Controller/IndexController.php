@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,7 +13,6 @@ final class IndexController extends AbstractController
 {
     public function __invoke(): JsonResponse
     {
-        return new JsonResponse("Hello");
+        return new JsonResponse('Hello');
     }
-
 }

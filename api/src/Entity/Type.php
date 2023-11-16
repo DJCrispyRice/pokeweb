@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Table(name: 'types')]
 #[ORM\Entity(repositoryClass: TypeRepository::class)]
 class Type
 {

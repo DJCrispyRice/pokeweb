@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Table(name: 'pokemons')]
 #[ORM\Entity(repositoryClass: PokemonRepository::class)]
 class Pokemon
 {
@@ -28,6 +29,9 @@ class Pokemon
     private Collection $attacks;
 
     #[ORM\Column]
+    private ?int $hp = null;
+
+    #[ORM\Column]
     private ?int $attack = null;
 
     #[ORM\Column]
@@ -38,12 +42,6 @@ class Pokemon
 
     #[ORM\Column]
     private ?int $special = null;
-
-    #[ORM\Column(options: ['default' => 100])]
-    private ?int $accuracy = null;
-
-    #[ORM\Column(options: ['default' => 100])]
-    private ?int $evasion = null;
 
     public function __construct()
     {
@@ -83,8 +81,11 @@ class Pokemon
         return $this->types;
     }
 
-    public function addType(Type $type): static
+    public function addType(?Type $type): static
     {
+        if ($type === null) {
+            return $this;
+        }
         if (!$this->types->contains($type)) {
             $this->types->add($type);
         }
@@ -119,6 +120,18 @@ class Pokemon
     public function removeAttack(Attack $attack): static
     {
         $this->attacks->removeElement($attack);
+
+        return $this;
+    }
+
+    public function getHp(): ?int
+    {
+        return $this->hp;
+    }
+
+    public function setHp(int $hp): static
+    {
+        $this->hp = $hp;
 
         return $this;
     }
@@ -167,30 +180,6 @@ class Pokemon
     public function setSpecial(int $special): static
     {
         $this->special = $special;
-
-        return $this;
-    }
-
-    public function getAccuracy(): ?int
-    {
-        return $this->accuracy;
-    }
-
-    public function setAccuracy(int $accuracy): static
-    {
-        $this->accuracy = $accuracy;
-
-        return $this;
-    }
-
-    public function getEvasion(): ?int
-    {
-        return $this->evasion;
-    }
-
-    public function setEvasion(int $evasion): static
-    {
-        $this->evasion = $evasion;
 
         return $this;
     }
