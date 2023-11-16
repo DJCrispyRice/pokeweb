@@ -7,6 +7,7 @@ app-install:
 	@make front-install
 	@make project-rights
 	@make xdebug-config-file
+	@make db-install
 	@echo "     ----- PROJET INSTALLE"
 
 app-start:
@@ -70,6 +71,11 @@ db-create:
 	@docker compose exec -u docker api php bin/console doctrine:database:create
 	@echo "     ----- Done"
 
+db-diff:
+	@echo "     ----- Exécution des migrations"
+	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:diff
+	@echo "     ----- Done"
+
 db-migrate:
 	@echo "     ----- Exécution des migrations"
 	@docker compose exec -u docker api php bin/console --no-interaction doctrine:migrations:migrate
@@ -81,4 +87,6 @@ db-install:
 	@make db-create
 	@make db-migrate
 	@docker compose exec -u docker api php bin/console app:create-types
+	@docker compose exec -u docker api php bin/console app:create-pokemons
+	@docker compose exec -u docker api php bin/console app:create-attacks
 	@echo "     ----- Done"

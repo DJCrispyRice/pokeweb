@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Autowire\Dependencies\Doctrine\ORM\AutowireEntityManagerInterfaceTrait;
 use App\Entity\Type;
+use App\ValueObject\TypesValueObject;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -29,10 +30,10 @@ final class CreateTypesCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $io->info('Creating types...');
-        $progressBar = new ProgressBar($output, count($this->getAllTypes()));
+        $progressBar = new ProgressBar($output, count(TypesValueObject::TYPES));
         $progressBar->start();
         $types = [];
-        foreach ($this->getAllTypes() as $type) {
+        foreach (TypesValueObject::TYPES as $type) {
             $types[$type] = (new Type())->setLabel($type);
             $progressBar->advance();
         }
@@ -40,7 +41,7 @@ final class CreateTypesCommand extends Command
         $io->newLine();
         $io->success('Types created.');
         $io->info('Creating the table of strengh/weakness...');
-        $progressBar = new ProgressBar($output, count($this->getAllTypes()));
+        $progressBar = new ProgressBar($output, count(TypesValueObject::TYPES));
         $progressBar->start();
         foreach ($types as $type) {
             $tableOfStrength = $this->getStrengthWeaknesses()[$type->getLabel()];
@@ -71,27 +72,6 @@ final class CreateTypesCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function getAllTypes(): array
-    {
-        return [
-            'Normal',
-            'Fight',
-            'Flying',
-            'Poison',
-            'Ground',
-            'Rock',
-            'Bug',
-            'Ghost',
-            'Fire',
-            'Water',
-            'Grass',
-            'Electric',
-            'Psychic',
-            'Ice',
-            'Dragon',
-        ];
-    }
-
     private function getStrengthWeaknesses(): array
     {
         return [
@@ -104,7 +84,7 @@ final class CreateTypesCommand extends Command
                 ],
             ],
 
-            'Fight' => [
+            'Fighting' => [
                 'strength' => [
                     'Normal',
                     'Rock',
@@ -119,7 +99,7 @@ final class CreateTypesCommand extends Command
 
             'Flying' => [
                 'strength' => [
-                    'Fight',
+                    'Fighting',
                     'Bug',
                     'Grass',
                 ],
@@ -164,7 +144,7 @@ final class CreateTypesCommand extends Command
                     'Ice',
                 ],
                 'weakness' => [
-                    'Fight',
+                    'Fighting',
                     'Ground',
                 ],
             ],
@@ -176,7 +156,7 @@ final class CreateTypesCommand extends Command
                     'Psychic',
                 ],
                 'weakness' => [
-                    'Fight',
+                    'Fighting',
                     'Flying',
                     'Ghost',
                     'Fire',
@@ -253,7 +233,7 @@ final class CreateTypesCommand extends Command
 
             'Psychic' => [
                 'strength' => [
-                    'Fight',
+                    'Fighting',
                     'Poison',
                 ],
                 'weakness' => [

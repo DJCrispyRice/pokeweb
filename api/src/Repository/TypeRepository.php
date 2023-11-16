@@ -14,4 +14,14 @@ class TypeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Type::class);
     }
+
+    public function findAllWithLabelAsKey(): array
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('t')
+            ->from(Type::class, 't', 't.label')
+            ->getQuery()
+            ->getResult();
+    }
 }

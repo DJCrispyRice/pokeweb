@@ -22,9 +22,9 @@ final class Version20231110000000 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SEQUENCE attacks_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE types_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE attacks (id INT NOT NULL, type_id INT NOT NULL, label VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, power INT DEFAULT NULL, pp INT NOT NULL, is_physical BOOLEAN NOT NULL, accuracy INT NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE attacks (id INT NOT NULL, type_id INT NOT NULL, label VARCHAR(255) NOT NULL, description VARCHAR(255) DEFAULT NULL, power INT DEFAULT NULL, pp INT NOT NULL, is_physical BOOLEAN NOT NULL, accuracy INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_AA42E602C54C8C93 ON attacks (type_id)');
-        $this->addSql('CREATE TABLE pokemons (id INT NOT NULL, name VARCHAR(255) NOT NULL, attack INT NOT NULL, defense INT NOT NULL, speed INT NOT NULL, special INT NOT NULL, accuracy INT DEFAULT 100 NOT NULL, evasion INT DEFAULT 100 NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE pokemons (id INT NOT NULL, name VARCHAR(255) NOT NULL, hp INT NOT NULL, attack INT NOT NULL, defense INT NOT NULL, speed INT NOT NULL, special INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE pokemon_types (pokemon_id INT NOT NULL, type_id INT NOT NULL, PRIMARY KEY(pokemon_id, type_id))');
         $this->addSql('CREATE INDEX IDX_B6D930642FE71C3E ON pokemon_types (pokemon_id)');
         $this->addSql('CREATE INDEX IDX_B6D93064C54C8C93 ON pokemon_types (type_id)');
