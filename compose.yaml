@@ -14,7 +14,9 @@ services:
       - database-data:/var/lib/postgresql/data:rw
 
   api:
-    image: thecodingmachine/php:8.2-v4-apache
+    build:
+      context: .
+      dockerfile: .docker/api/Dockerfile
     container_name: api
     links:
       - database
@@ -23,14 +25,8 @@ services:
     volumes:
       - ./api:/var/www/html
       - ./.docker/api/apache/app.conf:/etc/apache2/conf-enabled/app.conf
-      - ./.docker/php/50_xdebug.ini:/etc/php/8.2/cli/conf.d/50_xdebug.ini
+      - ./.docker/api/php/20-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
-      PHP_EXTENSION_INTL: 1
-      PHP_EXTENSION_XDEBUG: 1
-      PHP_EXTENSION_PGSQL: 1
-      PHP_EXTENSION_PDO_PGSQL: 1
-      PHP_EXTENSION_PDO_MYSQL: 0
-      PHP_EXTENSION_MYSQLI: 0
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_HOST: database
