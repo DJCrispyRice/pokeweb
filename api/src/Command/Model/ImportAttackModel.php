@@ -22,25 +22,25 @@ final class ImportAttackModel extends AbstractModel
     public static function buildOptionsResolver(): OptionsResolver
     {
         $resolver = new OptionsResolver();
-        $resolver
-            ->define(self::COLUMN_ATTACK_NAME)
-            ->required()
-            ->allowedTypes('string');
+        self::defineStringColumns($resolver, [
+            self::COLUMN_ATTACK_NAME,
+        ], nullable: false);
+
         self::defineTypeColumn($resolver, self::COLUMN_ATTACK_TYPE, nullable: false);
-        $resolver
-            ->define(self::COLUMN_ATTACK_PHYSICAL)
-            ->required()
-            ->allowedTypes('string')
-            ->allowedValues('Physical', 'Special', 'Status')
-        ;
+
+        self::defineStringColumns($resolver, [
+            self::COLUMN_ATTACK_PHYSICAL
+        ], nullable: false, allowedValues: ['Physical', 'Special', 'Status']);
+
         self::defineIntegerColumns([
             self::COLUMN_ATTACK_POWER,
             self::COLUMN_ATTACK_ACCURACY,
             self::COLUMN_ATTACK_PP,
         ], $resolver);
-        $resolver
-            ->define(self::COLUMN_ATTACK_DESCRIPTION)
-            ->allowedTypes('string', 'null');
+
+        self::defineStringColumns($resolver, [
+            self::COLUMN_ATTACK_DESCRIPTION,
+        ], nullable: true);
 
         return $resolver;
     }

@@ -10,7 +10,7 @@ Barrier;Psychic;Status;0;100;20;Sharply raises user's Defense.
 Bide;Normal;Physical;0;100;10;User takes damage for two turns then strikes back double.
 Bite;Normal;Physical;60;100;25;May cause flinching
 Blizzard;Ice;Physical;110;70;5;May freeze opponent.
-Body Slam;Normal;85;100;15;May paralyze opponent.
+Body Slam;Normal;Physical;85;100;15;May paralyze opponent.
 Bone Club;Ground;Physical;65;85;20;May cause flinching.
 Bonemerang;Ground;Physical;50;90;10;Hits twice in one turn.
 Bubble;Water;Special;40;100;30;May lower opponent's Speed.

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Exception;
 
-class UnexpectedValueException extends \RuntimeException
+final class UnexpectedValueException extends \RuntimeException
 {
     public function __construct(mixed $value, ?\Throwable $previous = null)
     {

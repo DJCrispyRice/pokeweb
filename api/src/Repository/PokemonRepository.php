@@ -8,10 +8,20 @@ use App\Entity\Pokemon;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class PokemonRepository extends ServiceEntityRepository
+final class PokemonRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Pokemon::class);
+    }
+
+    public function findAllWithNameAsKey(): array
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from(Pokemon::class, 'p', 'p.name')
+            ->getQuery()
+            ->getResult();
     }
 }

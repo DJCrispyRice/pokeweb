@@ -33,7 +33,7 @@ Num;Name;HP;Atk;Def;Spd;Spe;Type 1;Type 2
 32;Nidoran♂;46;57;40;50;40;Poison;
 33;Nidorino;61;72;57;65;55;Poison;
 34;Nidoking;81;92;77;85;75;Poison;Ground
-35;CleNormal;70;45;48;35;60;Normal;
+35;Clefairy;70;45;48;35;60;Normal;
 36;Clefable;95;70;73;60;85;Normal;
 37;Vulpix;38;41;40;65;65;Fire;
 38;Ninetales;73;76;75;100;100;Fire;
@@ -79,8 +79,8 @@ Num;Name;HP;Atk;Def;Spd;Spe;Type 1;Type 2
 78;Rapidash;65;100;70;105;80;Fire;
 79;Slowpoke;90;65;65;15;40;Water;Psychic
 80;Slowbro;95;75;110;30;80;Water;Psychic
-81;Magnemite;25;35;70;45;95;Electric
-82;Magneton;50;60;95;70;120;Electric
+81;Magnemite;25;35;70;45;95;Electric;
+82;Magneton;50;60;95;70;120;Electric;
 83;Farfetch'd;52;65;55;60;58;Normal;Flying
 84;Doduo;35;85;45;75;35;Normal;Flying
 85;Dodrio;60;110;70;100;60;Normal;Flying

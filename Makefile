@@ -60,7 +60,7 @@ xdebug-config-file:
 	@echo "    -> Création de la configuration xdebug"
 	@rm -f .docker/api/php/20-xdebug.ini
 	@cp .docker/api/php/custom.xdebug.ini.example .docker/api/php/20-xdebug.ini
-	@echo "xdebug.client_host=$$(cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2)" >> .docker/api/php/20-xdebug.ini
+	@echo "xdebug.client_host=$NAME" >> "$xdebug_path"/20-xdebug.ini
 	@echo "    ------ Fichier xdebug généré"
 
 cs-fixer:
@@ -112,4 +112,5 @@ db-install:
 	@docker compose exec -u www-data api php bin/console app:create-types
 	@docker compose exec -u www-data api php bin/console app:create-pokemons
 	@docker compose exec -u www-data api php bin/console app:create-attacks
+	@docker compose exec -u www-data api php bin/console app:create-affectations
 	@echo "     ----- Done"

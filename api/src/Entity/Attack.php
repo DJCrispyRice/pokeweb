@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Repository\AttackRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Table(name: 'attacks')]
@@ -16,26 +17,26 @@ class Attack
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $label = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: Types::INTEGER,nullable: true)]
     private ?int $power = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $pp = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::BOOLEAN)]
     private ?bool $isPhysical = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $accuracy = null;
 
     public function getId(): ?int

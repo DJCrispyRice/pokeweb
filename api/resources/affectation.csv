@@ -1,0 +1,152 @@
+pokemon;attack_1;attack_2;attack_3;attack_4
+Bulbasaur;Razor Leaf;Leech Seed;Body Slam;Toxic
+Ivysaur;Razor Leaf;Double-Edge;Sleep Powder;Growth
+Venusaur;Leech Seed;Take Down;Poison Powder;Solar Beam
+Charmander;Fire Spin;Flamethrower;Dig;Slash
+Charmeleon;Flamethrower;Strength;Seismic Toss;Counter
+Charizard;Fire Blast;Fire Spin;Fly;Swords Dance
+Squirtle;Surf;Blizzard;Dig;Body Slam
+Wartortle;Surf;Ice Beam;Strength;Rest
+Blastoise;Hydro Pump;Seismic Toss;Skull Bash;Withdraw
+Caterpie;Tackle;String Shot;;
+Metapod;Tackle;String Shot;;
+Butterfree;Psychic;Mega Drain;Supersonic;Stun Spore
+Weedle;Poison Sting;String Shot;;
+Kakuna;Poison Sting;String Shot;;
+Beedrill;Hyper Beam;Twineedle;Toxic;Screech
+Pidgey;Fly;Double-Edge;Double Team;Sand Attack
+Pidgeotto;Fly;Quick Attack;Take Down;Sand Attack
+Pidgeot;Fly;Quick Attack;Sand Attack;Mirror Move
+Rattata;Super Fang;Hyper Fang;Quick Attack;Blizzard
+Raticate;Hyper Fang;Hyper Beam;Thunder;Tail Whip
+Spearow;Drill Peck;Double-Edge;Double Team;Mirror Move
+Fearow;Drill Peck;Fury Attack;Swift;Mirror Move
+Ekans;Earthquake;Body Slam;Acid;Screech
+Arbok;Strength;Dig;Wrap;Glare
+Pikachu;Thunderbolt;Seismic Toss;Slam;Thunder Wave
+Raichu;Thunder;Mega Kick;Thunder Wave;Flash
+Sandshrew;Earthquake;Seismic Toss;Slash;Sand Attack
+Sandslash;Dig;Seismic Toss;Swift;Sand Attack
+Nidoran♀;Thunderbolt;Body Slam;Toxic;Blizzard
+Nidorina;Thunder;Ice Beam;Double-Edge;Toxic
+Nidoqueen;Earthquake;Double Kick;Bite;Toxic
+Nidoran♂;Blizzard;Body Slam;Thunderbolt;Poison Sting
+Nidorino;Thunder;Horn Attack;Double-Edge;Growl
+Nidoking;Earthquake;Rage;Substitute;Skull Bash
+Clefairy;Thunderbolt;Body Slam;Blizzard;Psychic
+Clefable;Ice Beam;Tri Attack;Sing;
+Vulpix;Flamethrower;Double-Edge;Dig;Confuse Ray
+Ninetales;Fire Blast;Skull Bash;Confuse Ray;Tail Whip
+Jigglypuff;Psychic;Seismic Toss;Body Slam;Sing
+Wigglytuff;Thunderbolt;Double-Edge;Submission;Sing
+Zubat;Mega Drain;Double-Edge;Confuse Ray;Toxic
+Golbat;Bite;Mega Drain;Confuse Ray;Haze
+Oddish;Mega Drain;Double-Edge;Petal Dance;Toxic
+Gloom;Petal Dance;Mega Drain;Take Down;Stun Spore
+Vileplume;Petal Dance;Cut;Acid;Sleep Powder
+Paras;Mega Drain;Slash;Dig;Spore
+Parasect;Solar Beam;Dig;Take Down;Spore
+Venonat;Psychic;Mega Drain;Double-Edge;Stun Spore
+Venomoth;Psychic;Solar Beam;Swift;Supersonic
+Diglett;Earthquake;Rock Slide;Slash;Sand Attack
+Dugtrio;Dig;Hyper Beam;Sand Attack;Toxic
+Meowth;Slash;Swift;Thunderbolt;Double Team
+Persian;Slash;Bubble Beam;Growl;Mimic
+Psyduck;Surf;Blizzard;Dig;Confusion
+Golduck;Surf;Ice Beam;Disable;Toxic
+Mankey;Submission;Seismic Toss;Rock Slide;Screech
+Primeape;Low Kick;Rock Slide;Fury Swipes;Screech
+Growlithe;Flamethrower;Body Slam;Dig;Reflect
+Arcanine;Fire Blast;Take Down;Dragon Rage;Substitute
+Poliwag;Surf;Body Slam;Blizzard;Amnesia
+Poliwhirl;Surf;Ice Beam;Earthquake;Hypnosis
+Poliwrath;Hydro Pump;Submission;Hypnosis;Counter
+Abra;Psybeam;Seismic Toss;Thunder Wave;Reflect
+Kadabra;Psychic;Dig;Recover;Counter
+Alakazam;Psychic;Tri Attack;Disable;Confuse Ray
+Machop;Submission;Earthquake;Rock Slide;Sharpen
+Machoke;Submission;Strength;Rock Slide;Sharpen
+Machamp;Low Kick;Strength;Counter;Sharpen
+Bellsprout;Razor Leaf;Mega Drain;Stun Spore;Growth
+Weepinbell;Razor Leaf;Acid;Wrap;Toxic
+Victreebel;Solar Beam;Slam;Acid;Reflect
+Tentacool;Surf;Body Slam;Mega Drain;Supersonic
+Tentacruel;Hydro Pump;Cut;Acid;Supersonic
+Geodude;Earthquake;Seismic Toss;Rock Slide;Self-Destruct
+Graveler;Earthquake;Seismic Toss;Strength;Explosion
+Golem;Earthquake;Rock Slide;Seismic Toss;Explosion
+Ponyta;Fire Blast;Body Slam;Agility;Fire Spin
+Rapidash;Fire Blast;Fire Spin;Stomp;Toxic
+Slowpoke;Surf;Psychic;Thunder Wave;Amnesia
+Slowbro;Surf;Psychic;Disable;Withdraw
+Magnemite;Thunderbolt;Toxic;Double-Edge;Supersonic
+Magneton;Thunder;Swift;Screech;Supersonic
+Farfetch'd;Fly;Slash;Sand Attack;Toxic
+Doduo;Drill Peck;Tri Attack;Double Team;
+Dodrio;Fly;Tri Attack;Reflect;Agility
+Seel;Surf;Ice Beam;Body Slam;Horn Attack
+Dewgong;Surf;Aurora Beam;Headbutt;Rest
+Grimer;Sludge;Body Slam;Screech;Self-Destruct
+Muk;Sludge;Thunderbolt;Hydro Pump;Explosion
+Shellder;Surf;Blizzard;Tri Attack;Self-Destruct
+Cloyster;Clamp;Blizzard;Spike Cannon;Supersonic
+Gastly;Confusion;Confuse Ray;Hypnosis;Dream Eater
+Haunter;Psychic;Mega Drain;Confuse Ray;Explosion
+Gengar;Night Shade;Thunderbolt;Confuse Ray;Hypnosis
+Onix;Earthquake;Rock Slide;Strength;Explosion
+Drowzee;Confusion;Tri Attack;Hypnosis;Dream Eater
+Hypno;Psychic;Headbutt;Hypnosis;Dream Eater
+Krabby;Crabhammer;Ice Beam;Double-Edge;Bubble Beam
+Kingler;Crabhammer;Blizzard;Substitute;Stomp
+Voltorb;Thunderbolt;Swift;Self-Destruct;Thunder Wave
+Electrode;Thunder;Swift;Explosion;Thunder Wave
+Exeggcute;Confusion;Explosion;Toxic;Leech Seed
+Exeggutor;Mega Drain;Egg Bomb;Stun Spore;Leech Seed
+Cubone;Earthquake;Strength;Blizzard;Submission
+Marowak;Bonemerang;Thrash;Fire Blast;Bone Club
+Hitmonlee;High Jump Kick;Mega Kick;Seismic Toss;Metronome
+Hitmonchan;Ice Punch;Thunder Punch;Strength;Submission
+Lickitung;Strength;Thunder;Fire Blast;Blizzard
+Koffing;Sludge;Thunderbolt;Toxic;Self-Destruct
+Weezing;Sludge;Fire Blast;Hyper Beam;Explosion
+Rhyhorn;Earthquake;Rock Slide;Body Slam;Explosion
+Rhydon;Dig;Strength;Surf;Thunder
+Chansey;Thunder;Fire Blast;Rest;Minimize
+Tangela;Mega Drain;Double-Edge;Growth;Toxic
+Kangaskhan;Dizzy Punch;Rock Slide;Thunderbolt;Surf
+Horsea;Bubble Beam;Ice Beam;Toxic;Smokescreen
+Seadra;Surf;Swift;Toxic;Smokescreen
+Goldeen;Surf;Ice Beam;Supersonic;Tail Whip
+Seaking;Waterfall;Blizzard;Horn Attack;Supersonic
+Staryu;Surf;Confusion;Thunderbolt;Recover
+Starmie;Surf;Thunder;Harden;Swift
+Mr. Mime;Psychic;Seismic Toss;Metronome;Barrier
+Scyther;Slash;Wing Attack;Double Team;Leer
+Jynx;Ice Punch;Mega Punch;Lovely Kiss;Psychic
+Electabuzz;Thunder Punch;Mega Punch;Thunder Wave;Psychic
+Magmar;Fire Punch;Mega Punch;Smokescreen;Psychic
+Pinsir;Strength;Seismic Toss;Harden;Rage
+Tauros;Double-Edge;Fire Blast;Tail Whip;Bide
+Magikarp;Tackle;Splash;;
+Gyarados;Surf;Dragon Rage;Fire Blast;Bite
+Lapras;Ice Beam;Solar Beam;Sing;Body Slam
+Ditto;Transform;;;
+Eevee;Body Slam;Swift;Toxic;Sand Attack
+Vaporeon;Surf;Quick Attack;Acid Armor;Sand Attack
+Jolteon;Thunder;Pin Missile;Acid;Sand Attack
+Flareon;Fire Blast;Take Down;Smog;Sand Attack
+Porygon;Psychic;Tri Attack;Sharpen;Conversion
+Omanyte;Surf;Ice Beam;Double-Edge;Double Team
+Omastar;Hydro Pump;Submission;Spike Cannon;Withdraw
+Kabuto;Bubble Beam;Ice Beam;Slash;Double Team
+Kabutops;Hydro Pump;Submission;Mega Kick;Swords Dance
+Aerodactyl;Fly;Dragon Rage;Hyper Beam;Supersonic
+Snorlax;Mega Kick;Rock Slide;Rest;Metronome
+Articuno;Blizzard;Sky Attack;Substitute;Razor Wind
+Zapdos;Thunder;Sky Attack;Flash;Thunder Wave
+Moltres;Fire Blast;Fly;Substitute;Swift
+Dratini;Body Slam;Hyper Beam;Thunderbolt;Thunder Wave
+Dragonair;Hyper Beam;Swift;Ice Beam;Thunder Wave
+Dragonite;Thunder;Slam;Dragon Rage;Agility
+Mewtwo;Psychic;Recover;Mega Punch;Amnesia
+Mew;Psychic;Mega Punch;Metronome;Double Team
