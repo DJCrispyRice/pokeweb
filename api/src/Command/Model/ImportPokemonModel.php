@@ -25,7 +25,7 @@ final class ImportPokemonModel extends AbstractModel
     {
         $resolver = new OptionsResolver();
         self::defineStringColumns($resolver, [
-            self::COLUMN_POKEMON_NAME
+            self::COLUMN_POKEMON_NAME,
         ], nullable: false);
 
         self::defineIntegerColumns([

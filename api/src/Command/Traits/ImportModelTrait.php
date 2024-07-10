@@ -20,21 +20,20 @@ trait ImportModelTrait
                 ->required()
                 ->allowedTypes('string')
                 ->allowedValues(
-                    static fn(string $value) => is_numeric($value)
+                    static fn (string $value) => is_numeric($value)
                 )
                 ->normalize(
-                    static fn(Options $options, string $value) => (int)$value
+                    static fn (Options $options, string $value) => (int) $value
                 );
         }
     }
 
     private static function defineStringColumns(
         OptionsResolver $resolver,
-        array           $columns,
-        bool            $nullable,
-        ?array          $allowedValues = null
-    ): void
-    {
+        array $columns,
+        bool $nullable,
+        ?array $allowedValues = null
+    ): void {
         foreach (
             $columns as $column
         ) {

@@ -29,7 +29,7 @@ final class ImportAttackModel extends AbstractModel
         self::defineTypeColumn($resolver, self::COLUMN_ATTACK_TYPE, nullable: false);
 
         self::defineStringColumns($resolver, [
-            self::COLUMN_ATTACK_PHYSICAL
+            self::COLUMN_ATTACK_PHYSICAL,
         ], nullable: false, allowedValues: ['Physical', 'Special', 'Status']);
 
         self::defineIntegerColumns([

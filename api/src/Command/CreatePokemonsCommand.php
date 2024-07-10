@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\Autowire\Dependencies\Doctrine\ORM\AutowireEntityManagerInterfaceTrait;
-use App\Autowire\Dependencies\Symfony\Component\DependencyInjection\ParameterBag\AutowireParameterBagInterfaceTrait;
 use App\Autowire\Repository\AutowireTypeRepositoryTrait;
 use App\Command\Model\ImportPokemonModel;
 use App\Command\Traits\ImportTrait;
@@ -33,7 +32,7 @@ final class CreatePokemonsCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->info('Creating pokémons...');
         $resolver = ImportPokemonModel::buildOptionsResolver();
-        $file = $this->openCsvFile(static::FILE);
+        $file = $this->openCsvFile(self::FILE);
         if ($file === null) {
             $io->error('The pokémon base file was not found. Exiting');
 

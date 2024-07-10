@@ -1,14 +1,16 @@
 <?php
 
 declare(strict_types=1);
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
 
-$finder = PhpCsFixer\Finder::create()
+$finder = Finder::create()
     ->ignoreDotFiles(false)
     ->ignoreVCSIgnored(true)
     ->exclude('tests')
     ->in(__DIR__);
 
-return (new PhpCsFixer\Config())
+return (new Config())
     ->setRules([
         '@PSR2' => true,
         '@Symfony' => true,

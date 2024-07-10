@@ -23,7 +23,7 @@ class Attack
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::INTEGER,nullable: true)]
+    #[ORM\Column(type: Types::INTEGER, nullable: true)]
     private ?int $power = null;
 
     #[ORM\ManyToOne]

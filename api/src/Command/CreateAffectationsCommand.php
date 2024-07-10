@@ -11,7 +11,6 @@ use App\Command\Model\ImportAffectationModel;
 use App\Command\Traits\ImportTrait;
 use App\Entity\Attack;
 use App\Entity\Pokemon;
-use App\Exception\UnexpectedValueException;
 use App\Util\Import\ImportUtil;
 use App\Util\String\StringUtil;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -36,7 +35,7 @@ final class CreateAffectationsCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->info('Affecting attacks to pokemon...');
         $resolver = ImportAffectationModel::buildOptionsResolver();
-        $file = $this->openCsvFile(static::FILE);
+        $file = $this->openCsvFile(self::FILE);
         if ($file === null) {
             $io->error('The affectation file was not found. Exiting');
 
