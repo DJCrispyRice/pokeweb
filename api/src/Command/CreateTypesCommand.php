@@ -19,13 +19,6 @@ final class CreateTypesCommand extends Command
 {
     use AutowireEntityManagerInterfaceTrait;
 
-    protected function configure(): void
-    {
-        $this
-            ->setHelp('Creates types with the table of strengh/weakness.')
-        ;
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);

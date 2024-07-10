@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\Autowire\Dependencies\Doctrine\ORM\AutowireEntityManagerInterfaceTrait;
-use App\Autowire\Dependencies\Symfony\Component\DependencyInjection\ParameterBag\AutowireParameterBagInterfaceTrait;
 use App\Autowire\Repository\AutowireTypeRepositoryTrait;
 use App\Command\Model\ImportAttackModel;
 use App\Command\Traits\ImportTrait;
@@ -23,16 +22,17 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class CreateAttacksCommand extends Command
 {
     use AutowireEntityManagerInterfaceTrait;
-    use AutowireParameterBagInterfaceTrait;
     use AutowireTypeRepositoryTrait;
     use ImportTrait;
+
+    private const FILE = 'atk.csv';
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         $io->info('Creating attacks...');
         $resolver = ImportAttackModel::buildOptionsResolver();
-        $file = $this->openCsvFile('atk.csv');
+        $file = $this->openCsvFile(self::FILE);
         if ($file === null) {
             $io->error('The attack base file was not found. Exiting');
 

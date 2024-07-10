@@ -9,19 +9,21 @@
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.16",
-        "symfony/console": "~6.3.0",
-        "symfony/dotenv": "~6.3.0",
+        "symfony/console": "~6.4.0",
+        "symfony/dotenv": "~6.4.0",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "~6.3.0",
-        "symfony/runtime": "~6.3.0",
-        "symfony/yaml": "~6.3.0"
+        "symfony/framework-bundle": "~6.4.0",
+        "symfony/runtime": "~6.4.0",
+        "symfony/yaml": "~6.4.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "*",
         "friendsofphp/php-cs-fixer": "*",
         "phpunit/phpunit": "*",
         "symfony/maker-bundle": "^1.51",
-        "symfony/twig-bundle": "6.3.*",
+        "symfony/stopwatch": "~6.4.0",
+        "symfony/twig-bundle": "~6.4.0",
+        "symfony/web-profiler-bundle": "~6.4.0",
         "twig/twig": "^3.0"
     },
     "replace": {
@@ -60,7 +62,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.3.*"
+            "require": "6.4.*"
         }
     },
     "scripts": {

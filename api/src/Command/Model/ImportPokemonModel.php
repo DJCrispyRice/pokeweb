@@ -24,10 +24,9 @@ final class ImportPokemonModel extends AbstractModel
     public static function buildOptionsResolver(): OptionsResolver
     {
         $resolver = new OptionsResolver();
-        $resolver
-            ->define(self::COLUMN_POKEMON_NAME)
-            ->required()
-            ->allowedTypes('string');
+        self::defineStringColumns($resolver, [
+            self::COLUMN_POKEMON_NAME,
+        ], nullable: false);
 
         self::defineIntegerColumns([
             self::COLUMN_POKEMON_NUMBER,
@@ -37,7 +36,9 @@ final class ImportPokemonModel extends AbstractModel
             self::COLUMN_POKEMON_SPD,
             self::COLUMN_POKEMON_SPE,
         ], $resolver);
+
         self::defineTypeColumn($resolver, self::COLUMN_POKEMON_TYPE_1, nullable: false);
+
         self::defineTypeColumn($resolver, self::COLUMN_POKEMON_TYPE_2, nullable: true);
 
         return $resolver;

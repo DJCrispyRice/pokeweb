@@ -28,6 +28,24 @@ trait ImportModelTrait
         }
     }
 
+    private static function defineStringColumns(
+        OptionsResolver $resolver,
+        array $columns,
+        bool $nullable,
+        ?array $allowedValues = null
+    ): void {
+        foreach (
+            $columns as $column
+        ) {
+            $resolver
+                ->define($column)
+                ->allowedTypes('string', $nullable === true ? 'null' : '');
+            if ($allowedValues !== null) {
+                $resolver->setAllowedValues($column, $allowedValues);
+            }
+        }
+    }
+
     private static function defineTypeColumn(OptionsResolver $resolver, string $column, bool $nullable): void
     {
         $resolver
