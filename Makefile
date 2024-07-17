@@ -1,6 +1,7 @@
 app-install:
 	@echo "     -> Installation du projet"
 	@make app-stop
+	@make xdebug-config-file
 	@make app-start
 	@make generate-env-local
 	@make api-install
@@ -12,7 +13,6 @@ app-install:
 
 app-start:
 	@echo "     -> Lancement du projet"
-	@make xdebug-config-file
 	@docker compose up -d --build
 	@echo "     ----- Projet lancé"
 
