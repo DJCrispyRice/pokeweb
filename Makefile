@@ -47,7 +47,7 @@ front-install:
 
 yarn-start:
 	@echo "     -> Démarrage de node"
-	@docker compose exec -d front /bin/sh -c "yarn start"
+	@docker compose exec -d front /bin/sh -c "yarn dev"
 	@echo "     ----- Node démarré"
 
 ## PHP
@@ -60,7 +60,7 @@ xdebug-config-file:
 	@echo "    -> Création de la configuration xdebug"
 	@rm -f .docker/api/php/20-xdebug.ini
 	@cp .docker/api/php/custom.xdebug.ini.example .docker/api/php/20-xdebug.ini
-	@echo "xdebug.client_host=$NAME" >> "$xdebug_path"/20-xdebug.ini
+	@echo "xdebug.client_host=$NAME" >> .docker/api/php/20-xdebug.ini
 	@echo "    ------ Fichier xdebug généré"
 
 cs-fixer:
