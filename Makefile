@@ -81,7 +81,7 @@ composer-require-dev:
 composer-update:
 	@echo "     -> Mise à jour des packages composer"
 	@docker compose exec -u www-data api composer update
-	@echo "     ----- Correctifs faits"
+	@echo "     ----- Mise à jour effectuée"
 
 ## DB related commands
 db-drop:
